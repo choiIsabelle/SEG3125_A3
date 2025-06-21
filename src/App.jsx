@@ -26,8 +26,8 @@ function App() {
     setGameReady(true);
   }
 
+  // retreive the game status from the GamePage component and set gameOver and hasPlayerWon states
   const getGameStatus = (status, gameResult) => {
-    console.log("What is the gameResult?", gameResult);
     setHasPlayerWon(gameResult);
     setGameOver(status);
   }
@@ -39,16 +39,22 @@ function App() {
     setHasPlayerWon(false);
   }
 
-  // console.log("Is player ready", isPlayerReady);
-  // console.log("Game ready", gameReady);
-  // console.log("Player name", playerName);
-  // console.log("Player level", playerLevel);
-  console.log("Game over", gameOver);
-
+  const handleNavigate = (page) => {
+    switch (page) {
+      case 'landing':
+        setIsPlayerReady(false);
+        setGameReady(false);
+        setGameOver(false);
+        setHasPlayerWon(false);
+        break;
+      default:
+        break;
+    }
+  }
 
   return (
     <>
-    <Navbar />
+    <Navbar handleNavigate={handleNavigate}/>
     {!isPlayerReady && !gameReady && <LandingPage handleGameStart={handleGameStart} />}
     {isPlayerReady && <GetInfos handleGetInfos={handleGetInfos} />}
     {gameReady && !gameOver && <GamePage name={playerName} difficulty={playerLevel} getGameStatus={getGameStatus} />}

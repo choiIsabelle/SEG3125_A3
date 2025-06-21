@@ -26,6 +26,16 @@ const StyledContainer = styled.div`
     gap: 1rem;
     `
 
+    
+    const GameTitle = styled.h1`
+        text-align: center;
+        color: #333;
+        font-size: 2.5rem;
+        margin-bottom: 0;
+        font-weight: bold;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+    `;
+
 /**
  * GameOverPage component displays a message based on the game status and provides a button to restart the game.
  *
@@ -41,8 +51,9 @@ const GameOverPage = ({ status, setPlayAgain }) => {
                     <Star fill={status ? "yellow" : "grey"} key={index} />
                 ))}
             </StyledStarContainer>
+            <GameTitle>{status ? 'You Won!' : "You Lost!"}</GameTitle>
             <Message status={status}>
-                {status ? 'Congratulations! You succeeded!' : 'Game Over! Better luck next time!'}
+                {status ? 'Congratulations! You beat the timer!' : 'You ran out of time. Try again!'}
             </Message>
             <ComponentLib.CustomButton handleOnClick={() => setPlayAgain()}>
                 Play Again?

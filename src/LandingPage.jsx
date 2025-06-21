@@ -17,8 +17,12 @@ const StyledHeader = styled.h1`
 
 const StyledContainer = styled.div`
   gap: 1rem;
-  margin-top: 10rem;
-
+  background-image: url('/cats/Cat_29.jpeg'); /* Add the background image */
+  background-size: cover; /* Ensure the image covers the entire container */
+  background-position: center; /* Center the image */
+  padding-top: 7rem;
+  min-height: 100vh;
+  background-repeat: no-repeat; /* Prevent the image from repeating */
 `
 
 const StyledItemsContainer = styled.div`
@@ -30,8 +34,8 @@ const StyledItemsContainer = styled.div`
   padding: 2rem;
   max-width: 600px; /* Limit width for better readability */
   margin: 0 auto; /* Center the container */
-  background-color:rgb(233, 233, 233); /* Light background for contrast */
-  `
+  background-color: rgb(233, 233, 233); /* Light background for contrast */
+`
 
 const LandingPage = ({ handleGameStart }) => {
   return (

@@ -14,8 +14,10 @@ const NavLink = styled.a`
     color: #fff;
     text-decoration: none;
     margin: 0 1rem;
+    cursor: pointer;
     &:hover {
-        text-decoration: underline;
+        text-decoration: none;
+        color: #f9f10b;
     }
 `;
 
@@ -28,16 +30,22 @@ const StyledHeader = styled.h1`
     font-size: 2.1rem;
     margin: 0;
     font-weight: bold;
+    &:hover {
+        cursor: pointer;
+        color: #f9f10b;
+    }
 `
 
-const Navbar = () => {
+const Navbar = ({handleNavigate}) => {
   return (
     <Nav>
-      <StyledHeader>Meet the Cats!</StyledHeader>
+      <StyledHeader onClick={()=>handleNavigate('landing')}>Meet the Cats!</StyledHeader>
       <NavMenu>
-        <NavLink href="#home">Home</NavLink>
-        <NavLink href="#about">About</NavLink>
-        <NavLink href="#contact">Contact</NavLink>
+        <NavLink
+            onClick={()=>handleNavigate('landing')}
+            >
+                Home
+            </NavLink>
       </NavMenu>
     </Nav>
   )
